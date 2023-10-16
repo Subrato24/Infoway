@@ -1,0 +1,116 @@
+//1. Create a class Person1 with attributes name, Address. Create a Class date with dd,mm,yy attributes.
+//Create class demo with main method and print name address and joining date of Person using this keyword.
+
+package AssignmentD4;
+
+class Date{
+	int dd,mm,yy;
+	Date(){
+		this.dd = 0;
+		this.mm = 0;
+		this.yy = 0;
+	}
+	Date(int dd,int mm,int yy){
+		this.dd = dd;
+		this.mm = mm;
+		this.yy = yy;
+	}
+	void display() {
+		System.out.println("Joining date : "+dd+"/"+mm+"/"+yy);
+	}
+}
+
+class Person1 {
+    String name,Add;
+    Person1(){
+    	this.name = name;
+    	this.Add = Add;
+    }
+    Person1(String n,String a){
+    	this.name = n;
+    	this.Add = a;
+    }
+    Person1(String n,String a,int d,int m,int y){
+    	Date d1 = new Date(d,m,y);
+    	this.name = n;
+    	this.Add = a;
+    	d1.display();
+    }
+    void display() {
+    	System.out.println("Name is : "+name+" And it's address is :"+Add);
+    }
+}
+
+public class Demo {
+	public static void main(String[] args) {
+    Person1 p1 = new Person1("Ajay","Pune",16,10,2023);
+    p1.display();
+    
+	}
+
+}
+
+
+/*2. Create a class Bank, create method deposit() in SavingsAccount class,
+create another method deposit with int parameter pass amount value to it. Print all data of Savings account class.*/
+
+package AssignmentD4;
+
+class SavingsAccount{
+	static int amount;
+	int deposit() {
+		return this.amount;
+	}
+	void deposit(int amount) {
+		this.amount = this.amount+ amount;
+	}
+	static {
+		amount = 0;
+	}
+}
+
+public class Bank {
+
+	public static void main(String[] args) {
+		SavingsAccount s = new SavingsAccount();
+		s.deposit(10000);
+		System.out.println("Amount present in account is: "+s.deposit());
+		
+		s.deposit(100);
+		System.out.println("Amount present in account is: "+s.deposit());
+		
+		s.deposit(10);
+		System.out.println("Amount present in account is: "+s.deposit());
+	}
+
+}
+
+
+//3. Create a class Programmer with attribute id,speciliazation,salary declare contructors call name and address from Person class. 
+
+package AssignmentD4;
+
+class Programmer{
+	int id;
+	String speciliazation;
+	double salary;
+	Programmer(){
+		this.id = id;
+		this.speciliazation = speciliazation;
+		this.salary = salary;
+	}
+	Programmer(int id,String speciliazation,double salary,String n,String p){
+		this.id = id;
+		this.speciliazation = speciliazation;
+		this.salary = salary;
+		Person1 p1 = new Person1(n,p);
+		p1.display();
+	}
+	void display() {
+		System.out.println("Programmer ID: "+this.id+" and it's speciliazation is: "+this.speciliazation+" and it's salary is:"+salary);
+	}
+	public static void main(String[] args) {
+        Programmer p = new Programmer(1,"JAVA",10000,"Rahul","Pune");
+        p.display();
+	}
+}
