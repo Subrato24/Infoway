@@ -1,0 +1,223 @@
+Assg 4:
+
+package AssignmentD19;
+
+public class Human {
+	private double height,weight,bmi;
+	public void setHeight(double h) {
+		this.height = h;
+	}
+	public void setWeight(double w) {
+		this.weight = w;
+	}
+	public double getHeight() {
+		return height;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public double getBmi() {
+		return (weight/(height*height));
+	}
+	public static void main(String[] args) {
+	    Human h = new Human();
+	    h.setHeight(1.646);   //In meter
+	    h.setWeight(75.52);   //In kG
+	    
+	    System.out.println("Height: "+h.getHeight());
+	    System.out.println("Weighht: "+h.getWeight());
+	    System.out.println("BMI: "+h.getBmi());
+	}
+
+}
+
+
+Assg 3:
+
+
+package AssignmentD19;
+
+public class Author {
+     private String name;
+     private String email;
+     private char gender;
+     
+     public Author(String n,String e,char c){
+    	 this.name = n;
+    	 this.email = e;
+    	 this.gender = c;
+     }
+     /*public void setName(String n) {
+    	 this.name = n;
+     }*/
+     public void setEmail(String e) {
+    	 this.email = e;
+     }
+     /*public void setGender(char c) {
+    	 this.gender = c;
+     }*/
+     
+     public String getName() {
+    	 return name;
+     }
+     public String getEmail() {
+    	 return email;
+     }
+     public char getGender() {
+    	 return gender;
+     }
+     
+     public static void main(String [] args) {
+    	 Author a = new Author("xyz","xyz@gmail,com",'M');
+    	 System.out.println(a.getName());
+    	 System.out.println(a.getEmail());
+    	 System.out.println(a.getGender());
+    	 a.setEmail("mno@yahoo.com");
+    	 System.out.println(a.getEmail());
+     }
+}
+
+
+Assg 2;
+
+package AssignmentD19;
+
+public class Livingthing{
+       
+       public void show() {
+    	   System.out.println("welcome to Livingthing ");
+       }
+}
+
+
+package AssignmentD19;
+
+public class Humanbeings extends Livingthing{
+    public void show() {
+ 	   System.out.println("welcome to Humanbeings");
+    }
+    
+	public static void main(String[] args) {
+		Humanbeings h = new Humanbeings();
+		h.show();
+
+	}
+
+}
+
+
+package AssignmentD19;
+
+public class Plants extends Livingthing {
+	public void show() {
+	 	   System.out.println("welcome to Plant");
+	    }
+	public static void main(String[] args) {
+		Humanbeings h = new Humanbeings();
+		h.show();
+	}
+
+}
+
+
+package AssignmentD19;
+
+public class Animals extends Livingthing {
+	public void show() {
+	 	   System.out.println("welcome to Animals");
+	    }
+	public static void main(String[] args) {
+		Humanbeings h = new Humanbeings();
+		h.show();
+	}
+
+}
+
+
+package AssignmentD19;
+
+public class Bacteria extends Livingthing{
+	public void show() {
+	 	   System.out.println("welcome to Bacteria");
+	    }
+	public static void main(String[] args) {
+		Humanbeings h = new Humanbeings();
+		h.show();
+	}
+
+}
+
+
+Assg 1:
+
+
+package AssignmentD19;
+
+public class Hillstations {
+	void loction() {
+		System.out.println("India");
+	}
+	void famousfor() {
+		System.out.println("Gold");
+	}
+}
+
+
+package AssignmentD19;
+
+public class Manili extends Hillstations {
+
+	void loction() {
+		System.out.println("Manali");
+		System.out.println("Location-Himachal Pradesh");
+	}
+	void famousfor() {
+		System.out.println("Famous for-Snow_capped mountains");
+	}
+	public static void main(String[] args) {
+		Hillstations h = new Gulmarg();
+		h.loction();
+        h.famousfor();
+	}
+
+}
+
+
+package AssignmentD19;
+
+public class Mussoorie extends Hillstations {
+
+	void loction() {
+		System.out.println("Mussoorie");
+		System.out.println("Location-Uttarakhand");
+	}
+	void famousfor() {
+		System.out.println("Famous for-Scenic beauty");
+	}
+	public static void main(String[] args) {
+		Hillstations h = new Gulmarg();
+		h.loction();
+        h.famousfor();
+	}
+
+}
+
+
+package AssignmentD19;
+
+public class Gulmarg extends Hillstations{
+ 
+	void loction() {
+		System.out.println("Gulmarg");
+		System.out.println("Location-Jammu and Kashmir");
+	}
+	void famousfor() {
+		System.out.println("Famous for-Himalayan Mountains");
+	}
+	public static void main(String[] args) {
+		Hillstations h = new Gulmarg();
+		h.loction();
+        h.famousfor();
+	}
+
+}
