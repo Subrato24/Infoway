@@ -1,0 +1,212 @@
+ASSIGNMENT 5:
+
+
+package AssgnmentD20;
+
+public class Bank {
+	static double amount;
+	double intrest;
+	double intOnAmt;
+	Bank(){
+		this.amount = 0.00;
+		this.intrest = 0.00;
+	}
+	Bank(double a,double i){
+		this.amount = a;
+		this.intrest = i;
+	}
+}
+******************************************************************************************************************
+
+package AssgnmentD20;
+
+public class SavingAccount extends Bank implements Account{
+	SavingAccount(){
+		super();
+	}
+    SavingAccount(double amount){
+		super(amount,4.52);
+	}
+	public void withdraw(double w) {
+		amount = amount - w;
+		intrest = 4.52;
+		intOnAmt = ((amount*intrest)/100);
+	}
+    public void deposite(double d) {
+    	amount = amount + d;
+    	intrest = 4.52;
+		intOnAmt = ((amount*intrest)/100);
+    }
+    public void getInt() {
+    	System.out.println("Intrest on Saving Account is :"+this.intrest);
+    }
+    public void getBal() {
+    	System.out.println("Balance:"+amount);
+    }
+    public void getintOnAmt() {
+    	System.out.println("Intrest amount on current balance is:"+intOnAmt);
+    }
+    
+} 
+********************************************************************************************************************
+
+package AssgnmentD20;
+
+public class CurrentAccount extends Bank implements Account{
+	CurrentAccount(){
+		super();
+	}
+	CurrentAccount(double amount){
+		super(amount,2.45);
+	}
+	public void withdraw(double w) {
+		amount = amount - w;
+		intrest = 2.40;
+		intOnAmt = ((amount*intrest)/100);
+	}
+	public void deposite(double d) {
+    	amount = amount + d;
+    	intrest = 2.40;
+		intOnAmt = ((amount*intrest)/100);
+    }
+    public void getInt() {
+    	System.out.println("Intrest on Saving Account is :"+intrest);
+    }
+    public void getBal() {
+    	System.out.println("Balance:"+amount);
+    }
+    public void getintOnAmt() {
+    	System.out.println("Intrest amount on current balance is:"+intOnAmt);
+    }
+}
+*******************************************************************************************************************
+package AssgnmentD20;
+
+public interface Account {
+     void withdraw(double w);
+     void deposite(double d);
+     void getInt();
+     void getBal();
+     void getintOnAmt();
+}
+
+********************************************************************************************************************
+package AssgnmentD20;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		SavingAccount a = new SavingAccount();
+		a.deposite(1000);
+		a.getBal();
+		a.withdraw(500);
+		a.getBal();
+		a.getInt();
+		a.getintOnAmt();
+		a.deposite(500);
+		a.getBal();
+		
+		System.out.println("**********************************");
+		
+		CurrentAccount c = new CurrentAccount();
+		c.deposite(2000);
+		c.getBal();
+		c.withdraw(500);
+		c.getBal();
+		c.getInt();
+		c.getintOnAmt();
+	}
+
+}
+
+
+
+ASSIGNMENT  7
+
+7. Write a Java program to create an interface Playable with a method play() that takes no arguments and returns void. Create three classes Football, Volleyball, and Basketball that implement the Playable interface and override the play() method to play the respective sports.
+
+
+
+package AssgnmentD20;
+
+public interface Playable {
+	void play();
+}
+
+***********************************************************
+
+package AssgnmentD20;
+
+public class Football implements Playable{
+	public void play() {
+		System.out.println("Welcome to play FOOTBALL");
+	}
+}
+
+
+***********************************************************
+
+package AssgnmentD20;
+
+public class Volleyball implements Playable{
+	public void play() {
+		System.out.println("Welcome to play VOLLEYBALL");
+	}
+}
+
+***********************************************************
+
+package AssgnmentD20;
+
+public class Basketball implements Playable{
+	public void play() {
+		System.out.println("Welcome to play BASKETBALL");
+	}
+}
+
+***********************************************************
+
+package AssgnmentD20;
+
+public class Main7 {
+
+	public static void main(String[] args) {
+		Playable p = new Football();
+		p.play();
+		p = new Volleyball();
+		p.play();
+		p = new Basketball();
+		p.play();
+	}
+}
+
+
+
+ASSIGNMENT 8:
+
+8. An abstract class has a construtor which prints "This is constructor of abstract class", an abstract method named 'a_method' and a non-abstract method which prints "This is a normal method of abstract class". 
+A class 'SubClass' inherits the abstract class and has a method named 'a_method' which prints "This is abstract method". 
+Now create an object of 'SubClass' and call the abstract method and the non-abstract method.
+
+
+class Abstract{
+         public Abstract(){
+		      System.out.println("This is constructor of abstract class");
+		 }
+		 public abstract void a_method();
+		 public void show(){
+		      System.out.println("This is a normal method of abstract class");
+		 }
+}
+
+class SubClass extends Abstract{
+         public void a_method(){
+		      System.out.println("This is abstract method");
+		 }
+}
+
+class Main{
+         SubClass obj = new SubClass();
+		 obj.a_method();
+         obj.show();
+}
