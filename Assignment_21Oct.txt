@@ -1,0 +1,83 @@
+1. What is the initial capacity of the following string buffer?
+StringBuffer sb = new StringBuffer("Able was I ere I saw Elba.");
+
+2. Consider the following string:
+String hannah = "Did Hannah see bees? Hannah did.";
+What is the value displayed by the expression hannah.length()?
+What is the value returned by the method call hannah.charAt(12)?
+Write an expression that refers to the letter b in the string referred to by hannah.
+
+3. Write a Java program to get the last index of a string within a string.
+
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+Note: use str.lastIndexOf() method for the same e.g. str.lastIndexOf("a", str.length() - 1);
+
+Sample Output:
+
+ a  b c  d  e  f  g  h i  j                                                                                   
+===========================                                                                                   
+36 10 7 40 33 16 42 32 6 20                                                                                   
+                                                                                                              
+k  l  m  n  o  p q  r  s  t                                                                                   
+===========================                                                                                   
+8 35 22 14 41 23 4 29 24 31                                                                                   
+                                                                                                              
+ u  v  w  x  y  z                                                                                             
+=================                                                                                             
+21 27 13 18 38 37
+
+=======================================================================================================
+4. Write a Java program to replace a specified character with another character.
+replace d with f.
+
+Sample Output:
+Original string: The quick brown fox jumps over the lazy dog.                                                 
+New String: The quick brown fox jumps over the lazy fog.
+========================================================================================================
+5. Write a Java program to find all interleavings of given strings.
+
+Sample Output:
+
+The given strings are: WX  YZ
+The interleavings strings are: 
+YWZX
+WYZX
+YWXZ
+WXYZ
+YZWX
+WYXZ
+================================================================================================
+6. Write a Java program to find the first non-repeating character in a string.
+
+
+Sample Output:
+
+The given string is: gibblegabbler
+The first non repeated character in String is: i
+========================================================================================================
+7. Write a Java program to divide a string into n equal parts.(n=5)
+Sample String:"abcdefghijklmnopqrstuvwxyz"
+
+Note: write your logic in method splitString(str s,int n)
+
+Sample Output:
+
+The given string is: abcdefghijklmnopqrstuvwxy
+The string divided into 5 parts and they are: 
+
+abcde
+fghij
+klmno
+pqrst
+uvwxy
+===================================================================================================
+8. Write a Java program to reverse a string using recursion.
+
+Sample Output:
+
+The given string is: The quick brown fox jumps
+The string in reverse order is:
+spmuj xof nworb kciuq ehT
+
+
+========================================================================================================
