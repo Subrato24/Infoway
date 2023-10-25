@@ -1,0 +1,231 @@
+//1. Write a java program to find whether arrayList is empty or not.
+//3. write a java program to find size og array and linked list.
+
+package AssgnmentD25;
+import java.util.*;
+
+public class Assg1 {
+
+	public static void main(String[] args) {
+		
+		ArrayList <Integer>al = new ArrayList<Integer>();
+		System.out.println(al.isEmpty());
+		al.add(10);
+		al.add(79);
+		al.add(68);
+		System.out.println(al.isEmpty());                          //Q1
+		System.out.println(al.size());                             //Q3
+	}
+}
+
+
+//2. Write a java program to find whether arrayList is empty or not.
+//3. write a java program to find size og array and linked list.
+
+package AssgnmentD25;
+import java.util.*;
+
+public class Assg2 {
+
+	public static void main(String[] args) {
+		LinkedList<String> ll = new LinkedList<String>();
+		System.out.println(ll.isEmpty());
+		ll.add("Hello");
+		ll.add("World");
+		ll.add("ifoway");
+		System.out.println(ll.isEmpty());                //Q1
+		System.out.println(ll.size());                   //Q3
+		System.out.println(ll);
+		Iterator I = ll.iterator();
+		while(I.hasNext()) {
+			String str = (String)I.next();
+			System.out.println(str);
+		}
+	}
+
+}
+
+
+//4. Write a java program to reverse arrayList.
+
+package AssgnmentD25;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class Assg4 {
+
+	public static void main(String[] args) {
+		
+		ArrayList <String>al = new ArrayList<String>();
+		al.add("Hello");
+		al.add("World");
+		al.add("Infoway");
+		
+		ListIterator<String> I = al.listIterator(al.size());
+		while(I.hasPrevious()) {
+			String str = I.previous();
+			System.out.println(str);
+		}
+	}
+}
+
+
+package AssgnmentD25;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Assg5 {
+
+		public static void main(String[] args) {
+			
+			ArrayList <String>al = new ArrayList<String>();
+			al.add("Hello");
+			al.add("World");
+			al.add("Infoway"); 
+			System.out.println(al.size());
+			
+			for(int i =0;i<=al.size()-1;i++) {
+				System.out.println(al.get(i));
+			}
+		}
+}
+
+
+//6. Write a java program to add 13,12,18,40, write a logic to remove only odd elements from the list and print only even numbers.
+
+package AssgnmentD25;
+
+import java.util.ArrayList;
+
+public class Assg6 {
+
+	public static void main(String[] args) {
+		ArrayList <Integer>al = new ArrayList<Integer>();
+		al.add(13);
+		al.add(12);
+		al.add(18); 
+		al.add(40);
+		System.out.println("Even numbers in list:");
+		for(int i =0;i<=al.size()-1;i++) {
+			if(al.get(i)%2!=0) {
+			      al.remove(i);
+			}
+		}
+		System.out.println(al);
+	}
+
+}
+
+
+//7. Write a java program to add numbers in an array list and linked list sort the elements in both.
+
+package AssgnmentD25;
+import java.util.*;
+
+
+public class Assg7 {
+		public static void main(String[] args) {
+			ArrayList <Integer>al = new ArrayList<Integer>();
+			Scanner s = new Scanner(System.in);
+			System.out.println("Enter the number of element you want in list:");
+			int count = s.nextInt();
+		    for(int i =1;i<=count;i++) {
+		    	System.out.println("Enter "+i+" element :");
+		    	int number = s.nextInt();
+		    	al.add(number);
+		    }
+			System.out.println("Before Sorting:");
+			for(int i =0;i<=al.size()-1;i++) {
+				System.out.println(al.get(i));
+			}
+			System.out.println("After Sorting:");
+			Collections.sort(al);
+			for(int i =0;i<=al.size()-1;i++) {
+				System.out.println(al.get(i));
+			}
+		}
+}
+
+
+package AssgnmentD25;
+
+import java.util.*;
+
+public class Assg7B {
+
+	public static void main(String[] args) {
+		LinkedList <Integer>al = new LinkedList<Integer>();
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the number of element you want in list:");
+		int count = s.nextInt();
+	    for(int i =1;i<=count;i++) {
+	    	System.out.println("Enter "+i+" element :");
+	    	int number = s.nextInt();
+	    	al.add(number);
+	    }
+		System.out.println("Before Sorting:");
+		for(int i =0;i<=al.size()-1;i++) {
+			System.out.println(al.get(i));
+		}
+		System.out.println("After Sorting:");
+		Collections.sort(al);
+		for(int i =0;i<=al.size()-1;i++) {
+			System.out.println(al.get(i));
+		}
+	}
+
+}
+
+
+//8. Create a class Person with fields name, age, address, phone number. print object person using array list and linked list.
+package AssgnmentD25;
+
+public class Person {
+	String name;
+	int age;
+	String address;
+	double pNo;
+	public Person(){
+		this.name = name;
+		this.age = age;
+		this.address = address;
+		this.pNo = pNo;
+	}
+	public Person(String n,int a,String add,double pN) {
+		this.name = n;
+		this.age = a;
+		this.address = add;
+		this.pNo = pN;
+	}
+}
+
+
+//8. Create a class Person with fields name, age, address, phone number. print object person using array list and linked list.
+
+package AssgnmentD25;
+import java.util.*;
+
+public class Assg8 {
+
+	public static void main(String[] args) {
+	    Person p1 = new Person("chotu",24,"PUNE",123456789);
+	    Person p2 = new Person("motu",25,"PUNJAB",345336789);
+	    Person p3 = new Person("patlu",69,"CHATTISGARH",979786789);
+	    Person p4 = new Person("golu",100,"GOA",998656789);
+	    
+	    ArrayList<Person> p = new ArrayList<Person>();
+	    p.add(p1);
+	    p.add(p2);
+	    p.add(p3);
+	    p.add(p4);
+	    
+	    Iterator I = p.iterator();
+	    while(I.hasNext()) {
+	    	Person pp = (Person)I.next();
+	    	System.out.println(pp.name+" "+pp.age+" "+pp.address+" "+pp.pNo);
+	    }
+	}
+
+}
