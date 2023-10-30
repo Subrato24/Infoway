@@ -1,0 +1,181 @@
+package Subrato;
+import java.util.Scanner;
+
+public class ArrayOperation {
+Scanner s = new Scanner(System.in);
+private int []arr;
+public ArrayOperation() {
+	arr = new int[5];
+}
+public ArrayOperation(int s) {
+	arr = new int[s];
+}
+
+public void inElement() {
+	System.out.println("Enter Array Elements:");
+	for(int i = 0;i<arr.length;i++) {
+		arr[i] = s.nextInt();
+	}
+}
+public void showElement() {
+	System.out.println("Array elements are:");
+	for(int i = 0;i<arr.length;i++) {
+		System.out.print(" "+arr[i]);
+	}
+	System.out.println();
+}
+public void lShift() {
+	int i;
+	for(i = 0;i<arr.length-1;i++) {
+		arr[i] = arr[i+1];
+	}
+	arr[i]=0;
+	System.out.println("Left Shifting done....");
+}
+public void rShift() {
+	int i;
+	for(i = arr.length-1;i>0;i--) {
+		arr[i]=arr[i-1];
+	}
+	arr[i]= 0;
+	System.out.println("Right shifting done....");
+}
+public void lRotate() {
+	int temp = arr[0];
+	int i;
+	for(i = 0;i<arr.length-1;i++) {
+		arr[i] = arr[i+1];
+	}
+	arr[i]=temp;
+	System.out.println("Left Rotation done....");
+}
+public void rRotate() {
+	int temp = arr[arr.length-1];
+	int i;
+	for(i = arr.length-1;i>0;i--) {
+		arr[i] = arr[i-1];
+	}
+	arr[i]=temp;
+	System.out.println("Right Rotation done....");
+}
+public void inElement(int e,int pos) {
+	int i;
+	for(i = arr.length-1;i>=pos;i--) {
+		arr[i] = arr[i-1];
+	}
+	arr[i]=e;
+	System.out.println("Element updation is done");
+}
+public void delElement(int pos) {
+	int i;
+	for(i = pos-1;i<arr.length-1;i++) {
+		arr[i] = arr[i+1];
+	}
+	arr[i]=0;
+	System.out.println("Element deletion is done");
+}
+public void remDuplicate() {
+	int i,j,k;
+	for(i=0;i<arr.length-1;i++) {
+		if(arr[i]==0) break;
+		else
+		{
+			for(j=i+1;j<arr.length-1;j++) {
+				if(arr[i]==arr[j]) {
+					for(k=j;k<arr.length-1;k++) {
+						arr[k]=arr[k+1];
+					}
+					arr[k]=0;
+				}
+			}
+		}
+	}
+	System.out.println("Removed duplicate value successful...");
+}
+public void search(int val) {
+	int res=0;
+	for(int  i =0;i<arr.length-1;i++) {
+		if (arr[i]==val) {
+		  res = i+1;
+		}	
+	}
+	System.out.println("Element is found at "+res+" position");
+}
+}
+
+
+
+package Subrato;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		int len = 0;
+		int sel;
+		 Scanner s = new Scanner(System.in);	
+		System.out.println("Enter the length of array");
+		len = s.nextInt();
+		ArrayOperation A = new ArrayOperation(len);
+	    do {	
+	    System.out.println("Select option below:");
+		System.out.println("1) Enter an element in array");
+		System.out.println("2) To print the elements of array");
+		System.out.println("3) To L-shift the elements");
+		System.out.println("4) To R-shift the elements");
+		System.out.println("5) To L-Rotate");
+		System.out.println("6) To R-Rotate");
+		System.out.println("7) Insert element at specific position");
+		System.out.println("8) Delete element at specific position");
+		System.out.println("9) Remove duplicate elements ");
+		System.out.println("10) Searching an element in array");
+		System.out.println("11) To EXIT");
+		sel = s.nextInt();
+		
+		switch(sel) {
+			case 1:
+				
+				A.inElement();
+				break;
+			case 2:
+				A.showElement();
+				break;
+			case 3:
+				A.lShift();
+				break;
+			case 4:
+				A.rShift();
+				break;
+			case 5:
+				A.lRotate();
+				break;
+			case 6:
+				A.rRotate();
+				break;
+			case 7:
+				System.out.println("Enter element and position at which you want to add");
+				int ele = s.nextInt();
+				int pos = s.nextInt();
+				A.inElement(ele, pos);
+				break;
+			case 8:
+				System.out.println("Enter the position at which you want to delete the element");
+				int val = s.nextInt();
+				A.delElement(val);
+				break;
+			case 9:
+				A.remDuplicate();
+				break;
+			case 10:
+				System.out.println("Enter the element you want to search in array:");
+				int ser = s.nextInt();
+				A.search(ser);
+			case 11:
+				break;
+			default :
+				System.out.println("Enter valid input");
+		}
+		}while(sel!=11);
+	}
+}
