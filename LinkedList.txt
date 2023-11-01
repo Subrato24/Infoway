@@ -1,0 +1,268 @@
+package Day2;
+
+public class LinkedList {
+	private IntNode head;
+	
+	public LinkedList() {
+		this.head = null;
+	}
+	
+	
+	public void inFirst(int val) {
+		IntNode nn = new IntNode(val);
+		if(head==null) {
+			head = nn;
+			return;
+		}
+		else {
+		nn.setNext(head); 
+		nn.setData(val);
+		head = nn;
+		return;
+		}
+	}	
+	
+	
+	public void inLast(int val) {
+		IntNode nn = new IntNode(val);
+		if(head==null) {
+			head = nn;
+			return;
+		}
+		IntNode iter = head;
+		while(iter.getNext()!=null) {
+			iter = iter.getNext();
+		}
+		iter.setNext(nn);
+	}
+	
+	public void inPos(int val,int pos) {
+		IntNode nn = new IntNode(val);
+		IntNode itr = head;
+		int i;
+		if(head==null) {
+			head = nn;
+			return;
+		}
+		if(pos==1) {
+			nn.setNext(head);
+			head = nn;
+			return;
+		}
+		for(i=1;((i<pos-1) && (itr.getNext()!=null));i++) {
+			itr = itr.getNext();
+		}
+		nn.setNext(itr.getNext());
+		itr.setNext(nn);
+		return;
+	}
+	public void inSorted(int d) {
+		IntNode nn = new IntNode(d);
+		if(head==null || head.getData()>d) {
+			nn.setNext(head);
+			head = nn;
+			return;
+		}
+		IntNode itr = head;
+		while((itr.getNext()!=null)&&(itr.getNext().getData()<d)) {
+			itr = itr.getNext();
+		}
+		nn.setNext(itr.getNext());
+		itr.setNext(nn);
+		return;
+	}
+	
+	public void delFirst() {
+		if(head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		else {
+			IntNode temp = head;
+			head = head.getNext();
+			temp= null;
+			return;
+		}
+	}
+	
+	public void delLast() {
+		IntNode deletable;
+		if(head==null) {
+			System.out.println("List is empty");
+			return;
+		}
+		if(head.getNext()==null) {
+			deletable = head;
+			head = null;
+			deletable = null;
+			return;
+		}
+        IntNode itr=head;
+	    while((itr.getNext()).getNext()!=null) {
+		    itr = itr.getNext();
+	    }	
+	    deletable = itr.getNext();
+	    itr.setNext(null);
+		deletable = null;
+		return;
+			
+	}
+	
+	public void delByPos(int pos) {
+		IntNode deletable;
+		//int d;
+		if(head==null) {
+			System.out.println("No element in the list");
+		}
+		if(pos==1) {
+			deletable = head;
+			head = head.getNext();
+			//d = head.getData();
+			deletable = null;
+			head = null;
+		}
+		int i;
+		IntNode itr = head;
+		for( i =1;(i<pos-1) && itr.getNext()!=null;i++,itr = itr.getNext() );
+	    if(itr.getNext()==null) {
+	    	System.out.println("Invalid position");
+	    	return;
+	    }
+	    deletable = itr.getNext();
+	    itr.setNext(deletable.getNext());
+		
+	}
+	
+	public String toString() {
+		String str = new String();
+		if(head==null) {
+			str = str+"List is empty...";
+			return str;
+			
+		}
+		IntNode iter = head;
+		str = str + "List:";
+		while(iter!=null) {
+			str = str+iter.getData()+" ";
+			iter = iter.getNext();
+		}
+		str = str+"\n";
+		return str;
+	}
+	
+	public void cntNode() {
+		IntNode itr =head;
+		int count =0;
+		if(head==null) {
+			System.out.println("No node present in list");
+			return;
+		}
+		while(itr!= null) {
+			itr = itr.getNext();
+			count++;
+		}
+        System.out.println("Nodes in LinkList:"+count);
+	}
+	
+	public void reverse() {
+		if(head==null) {
+			System.out.println("Empty list");
+			return;
+		}
+		else {
+		IntNode itr = head;
+		IntNode pre = null;
+		IntNode next;
+		while(itr!=null) {
+			next = itr.getNext();
+			itr.setNext(pre);
+			pre = itr;
+			itr = next;
+		}
+		head = pre;
+		}
+		
+	}
+}
+**********************************************************************************************
+
+
+package Day2;
+
+public class IntNode {
+	private int data;
+	private IntNode next;
+	
+	public IntNode() {
+		this.data = data;
+		this.next = null;
+	}
+	public IntNode(int val) {
+		this.data = val;
+		this.next = null;
+	}
+	public void setData(int val) {
+		this.data = val;
+	}
+	public void setNext(IntNode n) {
+		this.next = n;
+	}
+	public int getData() {
+		return data;
+	}
+	public IntNode getNext() {
+		return next;
+	}
+}
+
+
+***********************************************************************************************
+
+
+package Day2;
+
+public class MainLink {
+
+	public static void main(String[] args) {
+		LinkedList ll = new LinkedList();
+//		ll.inLast(12);
+//		ll.inLast(24);
+//		ll.inLast(65);
+//		ll.inLast(87);
+//		ll.display();
+//		ll.inLast(90);
+//		ll.display();
+//		ll.delFirst();
+//		ll.display();
+//		ll.delFirst();
+//		ll.display();
+//		
+//		ll.cntNode();
+//		
+//		ll.inLast(80);
+//		ll.display();
+//		ll.cntNode();
+		
+//		ll.delLast();
+//		ll.display();
+//		
+//		ll.delByPos(2);
+//		ll.display();
+//		
+//		ll.inPos(38, 2);
+//		ll.display();
+//		ll.inLast(44);
+//		ll.reverse();
+//		ll.display();
+		
+		ll.inSorted(2);
+		ll.inSorted(3);
+		ll.inSorted(4);
+		ll.inSorted(6);
+		ll.inSorted(5);
+		
+		System.out.println(ll.toString());
+	}
+
+}
+ 
