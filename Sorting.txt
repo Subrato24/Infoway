@@ -1,0 +1,213 @@
+package Day8;
+
+public class SelectionSort {
+	
+	public static void selSort(int arr[]) {
+		int i,j,min;
+		
+		for(i=0;i<arr.length-1;i++) {
+			min = i;
+			for(j = i+1;j<arr.length;j++) {
+				if(arr[min]>arr[j]) {
+					min = j;
+				}
+			}	
+			if(min != i) {
+					int temp = arr[i];
+					arr[i] = arr[min];
+					arr[min] = temp;
+			}
+		}
+	}
+	public static void display(int arr[]) {
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	public static void main(String[] args) {
+		SelectionSort ss = new SelectionSort();
+		int[] arr = {10,40,20,80,45,60};
+		ss.display(arr);
+		System.out.println();
+		selSort(arr);
+		ss.display(arr);
+	}
+
+}
+
+
+
+****************************************************************************************************
+
+
+
+package Day8;
+
+public class Employee {
+	String name;
+	int id;
+	double sal;
+	public Employee() {
+		this.name = name;
+		this.id = id;
+		this.sal = sal;
+	}
+	public Employee(String n,int id,double d) {
+		this.name = n;
+		this.id = id;
+		this.sal = d;
+	}
+	public void setName(String n) {
+		this.name = n;
+	}
+	public void setId(int i) {
+		this.id = i;
+	}
+	public void setSal(double d) {
+		this.sal = d;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getId() {
+		return id;
+	}
+	public double getSal() {
+		return sal;
+	}
+}
+
+
+
+
+package Day8;
+
+public class EmpSelectSort {
+	
+	public static void selSort(Employee arr[]) {
+		int i,j,min;
+		for(i=0;i<arr.length-1;i++) {
+			min = i;
+			for(j=i+1;j<arr.length;j++) {
+				if(arr[i].getSal()>arr[j].getSal()) {
+					min = j;
+				}
+			}
+			if(min != i) {	
+				Employee temp = arr[i];
+				arr[i] = arr[min];
+				arr[min] = temp;
+			}
+		}
+	}
+	public static void display(Employee[] emp) {
+		for(int i=0;i<emp.length;i++) {
+			System.out.println("Name: "+emp[i].getName()+",ID: "+emp[i].getId()+",Salary:"+emp[i].getSal());
+		}
+	}
+	public static void main(String[] args) {
+		EmpSelectSort ss = new EmpSelectSort();
+		Employee emp[]=  new Employee[6];
+		emp[0] = new Employee("Ajay",1,12000);
+		emp[1] = new Employee("Rohan",2,22000);
+		emp[2] = new Employee("Raju",3,24000);
+		emp[3] = new Employee("Sonal",4,42000);
+		emp[4] = new Employee("Soham",5,32000);
+		emp[5] = new Employee("Ankit",6,22000);
+		
+		System.out.println("Before sorting by salary:");
+		ss.display(emp);
+		ss.selSort(emp);
+		System.out.println("");
+		System.out.println("After sorting by salary:");
+		ss.display(emp);
+	}
+
+}
+
+
+
+****************************************************************************************************************
+
+
+
+package Day8;
+
+public class BubbleSort {
+	
+	public static void bubbleSort(int arr[]) {
+		for(int j = arr.length -1;j>0;j--) {
+			for(int i = 0;i<j;i++) {
+				if(arr[i]>arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+	
+	public static void display(int arr[]) {
+		for(int i =0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	public static void main(String[] args) {
+		int arr[] = {10,50,40,30,54,44};
+		System.out.println("Before sorting:");
+		display(arr);
+		System.out.println();
+		System.out.println("After sorting:");
+		bubbleSort(arr);
+		display(arr);
+	}
+
+}
+
+
+
+***********************************************************************************************************************
+
+
+
+
+package Day8;
+
+public class EmpBubbleSort {
+	
+	public static void bubbleSort(Employee emp[]) {
+		for(int j = emp.length-1;j>0;j--) {
+			for(int i = 0;i<j;i++) {
+				if(emp[i].getSal()>emp[i+1].getSal()) {
+					Employee temp = emp[i];
+					emp[i] = emp[i+1];
+					emp[i+1] = temp;
+				}
+			}
+		}
+	}
+	
+	public static void display(Employee arr[]) {
+		for(int i =0;i<arr.length;i++) {
+			System.out.println("Name:"+arr[i].getName()+",Id:"+arr[i].getId()+",Salary:"+arr[i].getSal());
+		}
+	}
+
+	public static void main(String[] args) {
+		Employee emp[] = new Employee[6];
+		emp[0] = new Employee("Ajay",1,12000);
+		emp[1] = new Employee("Rohan",2,22000);
+		emp[2] = new Employee("Raju",3,24000);
+		emp[3] = new Employee("Sonal",4,42000);
+		emp[4] = new Employee("Soham",5,32000);
+		emp[5] = new Employee("Ankit",6,22000);
+		
+		System.out.println("Before sorting by salary:");
+		display(emp);
+		
+		System.out.println("After sorting by salary:");
+		bubbleSort(emp);
+		display(emp);
+	}
+
+}
